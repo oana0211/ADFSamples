@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="view1PageDef"
+                Package="test.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="Group"
+              id="GroupIterator"/>
+    <accessorIterator MasterBinding="GroupIterator" Binds="persoane"
+                      RangeSize="10" DataControl="Group"
+                      BeanClass="test.model.Persoana" id="persoaneIterator"/>
+    <accessorIterator MasterBinding="persoaneIterator" Binds="listaMasini"
+                      RangeSize="10" DataControl="Group"
+                      BeanClass="test.model.Masina" id="listaMasiniIterator2"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="persoaneIterator" id="persoane">
+      <nodeDefinition DefName="test.model.Persoana" Name="persoane0">
+        <AttrNames>
+          <Item Value="nume"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="listaMasiniIterator2" id="listaMasini2">
+      <nodeDefinition DefName="test.model.Masina" Name="listaMasini20">
+        <AttrNames>
+          <Item Value="marca"/>
+          <Item Value="isNoua"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

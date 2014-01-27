@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelBox text="PanelBox1" id="pb1">
+          <f:facet name="toolbar"/>
+          <af:panelGroupLayout id="pgl2" layout="vertical">
+            <af:iterator id="i2" value="#{bindings.persoane.collectionModel}"
+                         var="rowPers">
+              <af:panelGroupLayout id="pgl4" layout="horizontal">
+                <af:commandLink text="#{rowPers.nume}" id="cl1"/>
+                <af:panelGroupLayout id="pgl3" layout="horizontal">
+                  <af:iterator id="i3"
+                               value="#{bindings.listaMasini2.collectionModel}"
+                               var="rowCar">
+                    <af:selectBooleanCheckbox text="#{rowCar.marca}"
+                                              id="sbc1"
+                                              selected="#{rowCar.isNoua}"
+                                              autoSubmit="true"
+                                              valueChangeListener="#{testBean.booleanCheckBoxListener}"/>
+                  </af:iterator>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+            </af:iterator>
+          </af:panelGroupLayout>
+        </af:panelBox>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

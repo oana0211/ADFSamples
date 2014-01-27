@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="Group" Package="test.model" BeanClass="test.model.Group"
+          isJavaBased="true">
+  <Attribute Name="nume" Type="java.lang.String"/>
+  <AccessorAttribute id="persoane" IsCollection="true"
+                     BeanClass="test.model.Persoana"
+                     CollectionBeanClass="UpdateableCollection"/>
+  <ConstructorMethod IsCollection="true" Type="test.model.Group"
+                     BeanClass="test.model.Group" id="Group"/>
+</JavaBean>
